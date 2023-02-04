@@ -7,6 +7,9 @@ import pandas as pd
 ROOT_DIR: Path = Path(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR: Path = ROOT_DIR / 'data'
 
+if not DATA_DIR.exists():
+    DATA_DIR.mkdir()
+
 
 def save_to_csv(data: list):
     df = pd.DataFrame(data)
