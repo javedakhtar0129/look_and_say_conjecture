@@ -1,5 +1,5 @@
 # This is where we'll build our binary look and say algo
-import pandas as pd
+from data import save_to_csv
 
 
 def look_and_say_numeric(start_variable):
@@ -61,10 +61,7 @@ if __name__ == "__main__":
         digit_count = count_digits(n)
         data.append(digit_count)
 
-    df = pd.DataFrame(data)
-
-    print(df)
-    df.to_csv('output_binary.csv')
+    save_to_csv(data)
 
 # 22111311
 # 22311321
