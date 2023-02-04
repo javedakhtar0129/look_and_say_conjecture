@@ -1,5 +1,5 @@
 # This is where we'll build our binary look and say algo
-from data import save_to_csv
+from save_csv import save_to_csv
 
 
 def look_and_say_numeric(start_variable):
@@ -25,18 +25,11 @@ def look_and_say_numeric(start_variable):
 
     return string_number
 
-
-def count_digits(number):
-    digit_count = {
-        "Number": number
-    }
-
-    for i in number:
-        if i in digit_count:
-            digit_count[i] += 1
-        else:
-            digit_count[i] = 1
-    return digit_count
+def compute_ratio(ones: int, zeros: int) -> float | None:
+    if zeros == 0:
+        return None
+    else:
+        return ones/zeros
 
 
 if __name__ == "__main__":
@@ -58,8 +51,16 @@ if __name__ == "__main__":
 
     # Iterate over the list of numbers
     for n in new_numbers:
-        digit_count = count_digits(n)
-        data.append(digit_count)
+        number = {
+            'number': n,
+            'lenght':len(n),
+            '1 count':n.count("1"),
+            '0 count':n.count("0"),
+            'Ratio 1/0':  compute_ratio(n.count("1"),n.count("0"))
+        }
+
+        data.append(number)
+
 
     save_to_csv(data)
 
