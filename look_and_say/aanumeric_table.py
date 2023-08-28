@@ -57,7 +57,7 @@ if __name__ == "__main__":
     for n in new_numbers:
         digit_count = count_digits(n)
         data.append(digit_count)
- 
+
     df = pd.DataFrame(data)
  
     print(df)
