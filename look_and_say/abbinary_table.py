@@ -3,10 +3,6 @@ import os
 import base64
 from save_csv import  save_to_csv,create_csv
 from decimal import Decimal
-from datetime import datetime
-import pandas as pd
-from pathlib import Path
-
 
 
 def look_and_say_numeric(start_variable):
@@ -83,7 +79,6 @@ if __name__ == "__main__":
         new_numbers.write("%s\n"%x)
         x = look_and_say_numeric(x)
 
-    # os.remove(new_numbers.name)
     new_numbers.close()
     file =  open('new_numbers_temoprary.txt','r')
 
@@ -108,6 +103,8 @@ if __name__ == "__main__":
         save_to_csv(number,save_csv_file_path)
 
     file.close()
+    os.remove(new_numbers.name)
+
     #     data.append(number)
     # save_to_csv(data)
 
